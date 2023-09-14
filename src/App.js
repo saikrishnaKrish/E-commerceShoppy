@@ -154,7 +154,6 @@ export default function App() {
           <Route path='/' exact component={Products}/>
           <Route path='/Cart' exact component={Cart}/>        
         </Switch>
-   
       </div>
     </cartContext.Provider>
    
