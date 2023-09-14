@@ -1,4 +1,9 @@
-function Cart({ cart }) {
+import { useContext, useState } from "react";
+import CartContext from "../../context/CartContext";
+import {useHistory  } from 'react-router-dom';
+function Cart() {
+  const {cart} =useContext(CartContext)
+  const history  = useHistory (); 
   let cartList = cart ? Object.values(cart) : [];
   // console.log("cartList", cartList);
   // console.log(cart);
@@ -8,6 +13,16 @@ function Cart({ cart }) {
     let finalprice = amoumt - discountedAmount;
 
     return finalprice;
+  }
+  function RedirectToPage(page){
+    let url=''
+    if(page.toLowerCase()=='home'){
+      url='/';
+    }
+    setTimeout(()=>{
+
+      history.push('/')
+    },4000)
   }
 
   //calcylating the final price for each product and storing in final price
@@ -28,7 +43,7 @@ function Cart({ cart }) {
 
   return (
     <>
-      <table>
+     {cartList.length > 0  ? <> <table>
         <thead>
           <tr>
             <th> Name</th>
@@ -51,10 +66,25 @@ function Cart({ cart }) {
           })}
         </tbody>
       </table>
+      
       <ul>
         <hr />
         Total Price: {billAmt.toFixed(2)}
+        <hr/>
+        Thanks for shopping
       </ul>
+      </> :<><i>
+          Your Shoppigng cart is empty!!!
+      </i>
+      <br/>
+      <br/>
+       You will be Redirected to Home Page
+      {RedirectToPage("Home")}
+      </>
+
+
+      }
+      
     </>
   );
 }
