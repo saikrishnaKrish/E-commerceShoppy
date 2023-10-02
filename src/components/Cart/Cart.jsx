@@ -6,7 +6,7 @@ function Cart() {
   const history  = useHistory (); 
   let cartList = cart ? Object.values(cart) : [];
   // console.log("cartList", cartList);
-  // console.log(cart);
+  console.log(cart);
 
   function getDiscountedPrice(amoumt, percentage) {
     let discountedAmount = (amoumt * percentage) / 100;

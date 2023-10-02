@@ -5,7 +5,8 @@ import cartContext from "./context/CartContext";
 
 //components
 import Products from "./components/Products/Products";
-import Cart from "./components/Cart/Cart";
+import ReduxCart from "./components/Cart/ReducxCart";
+// import Cart from "./components/Cart/Cart";
 
 
 
@@ -148,14 +149,15 @@ export default function App() {
     setCart(newCart);
   }
   return (
-    <cartContext.Provider value={{ cart, incrementQty, decrementQty }}>
+    // <cartContext.Provider value={{ cart, incrementQty, decrementQty }}>
       <div className="App">
         <Switch>
           <Route path='/' exact component={Products}/>
-          <Route path='/Cart' exact component={Cart}/>        
+          {/* <Route path='/Cart' exact component={Cart}/>         */}
+          <Route path="/cart" component={ReduxCart}/>
         </Switch>
       </div>
-    </cartContext.Provider>
+    // </cartContext.Provider>
    
   );
 }
