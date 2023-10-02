@@ -1,9 +1,17 @@
+import {Switch,Route} from "react-router-dom";
 import { useState } from "react";
-import Products from "./components/Products/Products";
 import "./styles.css";
-import Cart from "./components/Cart/Cart";
+import cartContext from "./context/CartContext";
+
+//components
+import Products from "./components/Products/Products";
+import ReduxCart from "./components/Cart/ReducxCart";
+// import Cart from "./components/Cart/Cart";
+
+
 
 export default function App() {
+
   //   let arr= [];
   //   console.log(arr);
   //   Array.prototype.doubleNum= function(z){
@@ -118,7 +126,6 @@ export default function App() {
 
   function incrementQty(product) {
     const newCart = { ...cart };
-
     if (!newCart[product.id]) {
       newCart[product.id] = {
         id: product.id,
@@ -142,13 +149,15 @@ export default function App() {
     setCart(newCart);
   }
   return (
-    <div className="App">
-      <Cart cart={cart} />
-      <Products
-        incrementQty={incrementQty}
-        decrementQty={decrementQty}
-        cart={cart}
-      />
-    </div>
+    // <cartContext.Provider value={{ cart, incrementQty, decrementQty }}>
+      <div className="App">
+        <Switch>
+          <Route path='/' exact component={Products}/>
+          {/* <Route path='/Cart' exact component={Cart}/>         */}
+          <Route path="/cart" component={ReduxCart}/>
+        </Switch>
+      </div>
+    // </cartContext.Provider>
+   
   );
 }
