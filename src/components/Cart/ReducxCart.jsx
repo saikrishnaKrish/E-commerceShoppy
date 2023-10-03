@@ -1,16 +1,15 @@
-import { useContext, useState } from "react";
+
 import { useSelector } from "react-redux";
-import {useHistory  } from 'react-router-dom';
 
 import useWindowSize from "../../hooks/useWindowSize";
-
+import RedirectToPage from "../../utils/redirection";
 //cart using Redux Store
 function ReduxCart() {
   const cart=useSelector((state)=>state.cart.items);
 // console.log(cart)
   let {width,height }=useWindowSize();
   console.log(width);
-  const history  = useHistory(); 
+   
   let cartList = cart ? Object.values(cart) : [];
   // console.log("cartList", cartList);
   // console.log(cart);
@@ -21,16 +20,7 @@ function ReduxCart() {
 
     return finalprice;
   }
-  function RedirectToPage(page){
-    let url=''
-    if(page.toLowerCase()=='home'){
-      url='/';
-    }
-    setTimeout(()=>{
-
-      history.push('/')
-    },4000)
-  }
+ 
 
   //calcylating the final price for each product and storing in final price
   cartList = cartList.map(

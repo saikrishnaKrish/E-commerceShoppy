@@ -3,16 +3,18 @@ import Rating from "../Rating/Rating";
 import ReduxAddToCart from "../ReduxAddToCart/ReduxAddToCart";
 import "./productCard.css";
 import React from "react";
+import {Link} from 'react-router-dom'
 
 function ProductCard({product}) {
   console.log('product card rendered')
   return (
     <div className="card">
-      <h2>{product.title}</h2>
+     
+      <h2>
+      <Link to={`/product/${product.id}`}>{product.title}</Link>
+       </h2>
       <h4>{product.price.value}</h4>
       <Rating rating={product.rating.value} maxRating={5}/>
-      {/* <AddToCart product={product}
-      /> */}
       <ReduxAddToCart product={product}/>
     </div>
   );

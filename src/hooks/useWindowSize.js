@@ -5,7 +5,7 @@ function useWindowSize(){
         width:window.innerWidth,
         height:window.innerHeight
     })
-console.log('windoe')
+
 
     function calSize(){
         setWindowSize({

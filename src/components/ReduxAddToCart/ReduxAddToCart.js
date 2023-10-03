@@ -1,5 +1,6 @@
 import { useDispatch,useSelector  } from "react-redux";
 // useDispatch--to provide the dispatch method
+
 function ReduxAddToCart({product}) {
   // const quantity = cart[product.id] ? cart[product.id].quantity : 0;
     let dispatch= useDispatch();

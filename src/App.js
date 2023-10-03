@@ -6,122 +6,15 @@ import cartContext from "./context/CartContext";
 //components
 import Products from "./components/Products/Products";
 import ReduxCart from "./components/Cart/ReducxCart";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
+import NotFound from "./components/NotFound/NotFound";
 // import Cart from "./components/Cart/Cart";
 
 
 
 export default function App() {
 
-  //   let arr= [];
-  //   console.log(arr);
-  //   Array.prototype.doubleNum= function(z){
-  //     return z*z;
-  //   }
-  //   console.log(arr.doubleNum(27))
-
-  // function stringReverse(str){
-  //   return str.split('').reverse().join('');
-  // }
-  // // let a=[]
-  // console.log(stringReverse('strerr'))
-  // // a.prototype.strrev=stringReverse()
-
-  // // In JavaScript, you can add properties or methods
-  // //to the prototype of constructor functions, but you cannot add
-  // //properties or methods to instances of objects directly.
-  // //In your code, `a` is an instance of an array, and you cannot directly
-  // //add a prototype to it. Instead, you should work with constructor functions.
-
-  // // If you want to add a `strrev` method to all arrays,
-  // // you can do so by extending the `Array.prototype`. Here's how you can do it:
-
-  // // ```javascript
-  // // Array.prototype.strrev = function() {
-  // //   return this.map(stringReverse); // Using the stringReverse
-  // //function you defined earlier
-  // // };
-
-  // // let a = [ 'str1', 'str2', 'str3' ];
-  // // console.log(a.strrev()); // This will reverse each string in the array
-  // // ```
-
-  // Array.prototype.strrev = function() {
-  //   return this.map(stringReverse);
-  //    // Using the stringReverse function
-  //   // you defined earlier
-  // };
-
-  // let a = [ 'str1', 'str2', 'str3' ];
-  // console.log(a.strrev()); // This will reverse each string in the array
-
-  // function Dog(name,breed){
-  //   this.name=name;
-  //   this.breed=breed;
-  // }
-  // stringReverse.prototype.getDetails=function(){
-  // console.log('name',this.name);
-  // }
-
-  // console.log(stringReverse('44'))
-
-  // let d = new Dog('buddy','street dog')
-  // // console.log(d.getDetails())
-
-  // // In this code, we add the `strrev` method to `Array.prototype`,
-  // // and it can then be called on any array object.
-
-  // function DoubleNumber(){
-  //   console.log(this.num2*this.num1)
-  //   console.log(this,typeof typeof this.num)
-  //   // return this.num*this.num
-  // }
-
-  // // console.log(DoubleNumber(14))
-  // let aa={num2:88,num1:778};
-  // // const person = {
-  // //   firstName: "Alice",
-  // //   lastName: "Johnson",
-  // // };
-  // let g=DoubleNumber.bind(aa)
-  // // console.log(DoubleNumber.bind(person)())
-  // console.log(g())
-
-  //   function MultiplyNum(){
-  //     console.log(this)
-  //   }
-
-  // const double=function(){console.log('this',this.x * this.x )};
-  // MultiplyNum.prototype.double=function(inp){
-  //   console.log(inp)
-  //   console.log(this)
-  //   // return this.x*this.x
-  // };
-  // MultiplyNum.prototype.triple=function(){return this.x* this.x * this.x};
-  // // MultiplyNum.prototype.triple=function(x){return x*x*x};
-  // let obj={x:23,y:223}
-  // console.log(double.bind(obj)())
-
-  // let m1=new MultiplyNum()
-  // console.log(m1.double(77))
-  // let x=MultiplyNum.bind(obj)
-  // console.log(x())
-  // console.log(MultiplyNum.call(88))
-  // MultiplyNum.prototype.
-  // callback is calling a function with params after the current flow of execution
-  //   function callbckExample(callback){
-  //   console.time()
-  // let a=5,b=3;
-  //     setTimeout(()=>{
-  //       callback(a,b)
-  //     },2000)
-  //   console.timeEnd()
-
-  //   }
-
-  //   function callback(a,b){
-  //     console.log(a*b);
-  //   }
-  // console.log(callbckExample(callback))
+  
   const [cart, setCart] = useState({});
 
   function incrementQty(product) {
@@ -149,16 +42,16 @@ export default function App() {
     setCart(newCart);
   }
   return (
-    // <cartContext.Provider value={{ cart, incrementQty, decrementQty }}>
       <div className="App">
         <h1 style={{backgroundColor:'Orange',color:'white'}}><i><b>Sravani Mart</b></i></h1>
         <Switch>
           <Route path='/' exact component={Products}/>
-          {/* <Route path='/Cart' exact component={Cart}/>         */}
-          <Route path="/cart" component={ReduxCart}/>
+          <Route path='/product/:id' exact component={ProductDetails}/>
+          <Route path="/cart" component={ReduxCart}/> 
+            <Route path='*' component={NotFound}/>
         </Switch>
       </div>
-    // </cartContext.Provider>
+   
    
   );
 }
