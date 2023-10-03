@@ -43,7 +43,7 @@ export default function App() {
   }
   return (
       <div className="App">
-        <h1 style={{backgroundColor:'Orange',color:'white'}}><i><b>Sravani Mart *|*|*</b></i></h1>
+        <h1 style={{backgroundColor:'Orange',color:'white'}}><i><b>Sravani Mart </b></i></h1>
         <Switch>
           <Route path='/' exact component={Products}/>
           <Route path='/product/:id' exact component={ProductDetails}/>
