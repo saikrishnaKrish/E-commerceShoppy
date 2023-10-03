@@ -2,3 +2,6 @@
   font-family: sans-serif;
   text-align: center;
 }
+body{
+      background: repeating-radial-gradient(#cb8181, #dbafaf 100px);
+}
