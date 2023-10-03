@@ -2,7 +2,9 @@ import { omit } from 'lodash';
 
 function cartReducers(state = { items: {} }, action) {
     // console.log('from thunk cart reducer', state)
+    console.log(action.type)
     switch (action.type) {
+      
         case 'ADD_TO_CART': {
             const product = action.payload;
             if (state.items[product.id]) {
@@ -29,8 +31,6 @@ function cartReducers(state = { items: {} }, action) {
                     }
                 }
             }
-
-
         }
         case 'REMOVE_FROM_CART': {
             const product = action.payload;
