@@ -11,9 +11,9 @@ function ProductCard({product}) {
     <div className="card">
      
       <h2>
-      <Link to={`/product/${product.id}`}>{product.title}</Link>
+      <Link to={`/productDetails/${product.id}`}>{product.title}</Link>
        </h2>
-      <h4>{product.price.value}</h4>
+      <h4 className="text-sm font-medium text-gray-900">{product.price.value}</h4>
       <Rating rating={product.rating.value} maxRating={5}/>
       <ReduxAddToCart product={product}/>
     </div>

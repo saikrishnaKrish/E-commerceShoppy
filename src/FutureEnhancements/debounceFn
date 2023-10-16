@@ -1,0 +1,29 @@
+//debounce
+function searchHandler(...args){
+    const value=args[0].target;
+    console.log("making an api call",value)
+}
+
+function debounceFunc(func,delay){
+    let timer;
+
+    return function(...args) {
+        const context=this;
+        clearTimeout(timer);
+        timer=setTimeout(()=>{
+            func.apply(context,args)
+        },delay)
+
+    }
+}
+
+
+const optimisedSearchHandler=debounceFunc(searchHandler,5000)
+
+{/* <input type="text" onChange={optimisedSearchHandler}/> */}
+
+window.addEventListener(onclick,handleThrottle);
+
+function handleThrottle(){
+    
+}

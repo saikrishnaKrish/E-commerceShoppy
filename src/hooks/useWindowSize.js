@@ -8,6 +8,7 @@ function useWindowSize(){
 
 
     function calSize(){
+        console.log('called function')
         setWindowSize({
             width:window.innerWidth,
             height:window.innerHeight
@@ -16,6 +17,9 @@ function useWindowSize(){
 
     useEffect(()=>{
         window.addEventListener('resize',calSize)
+        return ()=>{
+            console.log('function removed')
+        }
     },[])
 
     return windowSize;

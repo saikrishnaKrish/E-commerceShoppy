@@ -39,11 +39,13 @@ function Products() {
 
   return (
     <>
+
       <>{isLoading && <div>Loading</div>}</>
       <Link to="/cart">View Cart {" "}
       {count}
        </Link>
       <Categories/>
+      <div className="dashboard-main">
       {!isLoading &&
         prodLst.length &&
         prodLst.map((product, index) => {
@@ -54,6 +56,7 @@ function Products() {
             />
           );
         })}
+      </div>
     </>
   );
 }

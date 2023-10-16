@@ -69,7 +69,7 @@ function Cart() {
       
       <ul>
         <hr />
-        Total Price: {billAmt.toFixed(2)}
+        Total Price: {billAmt && billAmt.toFixed(2)}
         <hr/>
         Thanks for shopping
       </ul>
